@@ -1,2 +1,2 @@
 
-https://jahmarjumps.github.io/index.html
+https://jahmarjumps.github.io/
