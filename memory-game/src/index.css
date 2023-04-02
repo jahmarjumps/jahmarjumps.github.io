@@ -1,15 +1,21 @@
-body{
-  text-align: center;
+body {
+    text-align: center;
 }
 
-.grid {
-  margin-top: 40px;
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 1fr 1fr 1fr 1fr
+h2{
+    color: rgb(132, 132, 93);
 }
-.card img{
-  width: 200px;
-  height: 200px;
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(3,1fr);
+    margin-top: 40px;
+    overflow: auto;
+    background-color: black;
+    
 }
-
+.card img {
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+}
