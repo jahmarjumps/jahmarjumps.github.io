@@ -9,15 +9,19 @@ h2{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-template-rows: repeat(3,1fr);
-    margin-top: 40px;
+    margin-top: 10px;
     overflow: auto;
-    background-color: black;
-    
+    background-color: black;  
 }
 .card img {
     width: 200px;
     height: 200px;
     cursor: pointer;
+    background-color: gray;
+}
+
+.front{
+    display: none ;
 }
 
 .newButton {
