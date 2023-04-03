@@ -4,25 +4,22 @@ import {useState} from 'react';
 
 const cardArray = [
     {
-        "id": 1,
         "src": require("./images/batman.png")
     },
-    {   "id": 2,
+    {
         "src": require("./images/cat.png")
     },
     {
-        "id": 3,
         "src": require("./images/harley.png")
     },
     {
-        "id": 4,
         "src": require("./images/joker.png")
     },
-    {   "id": 5,
+    {   
         "src": require("./images/riddler.png")
     },
-    {   "id": 6,
-        "src": require("./images/scare.png")
+    {   
+      "src": require("./images/scare.png")
     }
 ]
 
@@ -30,26 +27,37 @@ const cardArray = [
 function App() {
     const [moves,setMoves] = useState(0);
     const [cards, setCards] = useState([]);
+    const [choice1,setChoice1] = useState(null);
+    const [choice2,setChoice2] = useState(null);
 
     const shuffleCards = ()=>{
-        const shuffledCards = [...cardArray,...cardArray]
-            .sort(()=> Math.random()-0.5);
-        setCards(shuffledCards);
+        let x = 0;
+        const shuffled = [...cardArray,...cardArray]
+            .sort(()=> Math.random()-0.5)
+            .map((card)=>({id: x=x+1,...card}))
+        setCards(shuffled)
         setMoves(0); 
     }
-   
+
+
+    const selectCard = (card)=> {
+        setChoice1(card);
+        setChoice2(card);
+        
+    }
+   console.log(cards)
 
     return(
     <div>
         <div className ="grid">
-            {cards.map(()=>(
+            {cards.map(card=>(
             <div className ="card">     
                 <img className = 'back' src={require('./images/cover.png')}alt=""></img>
-                <img className = 'front' src= {cards.src} alt =""></img>
+                <img id ={card.id} className = 'front' src= {card.src} alt ="" onClick={selectCard}></img>
             </div>   
             ))}
         </div>
-        <button onClick={shuffleCards}>New Game</button> 
+        <button className='newButton' onClick={shuffleCards}><b>New Game</b></button> 
         <h2>Moves:{moves}</h2> 
                
     </div>    
